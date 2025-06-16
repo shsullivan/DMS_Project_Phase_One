@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Math.round;
+
 public class Raker {
 
     // Attributes
@@ -239,7 +241,7 @@ public class Raker {
                 value += disc.getResaleValue();
             }
         }
-        return value;
+        return Math.round(value);
     }
 
     /*
