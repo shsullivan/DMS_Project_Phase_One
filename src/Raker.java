@@ -241,7 +241,7 @@ public class Raker {
                 value += disc.getResaleValue();
             }
         }
-        return Math.round(value);
+        return round(value);
     }
 
     /*
