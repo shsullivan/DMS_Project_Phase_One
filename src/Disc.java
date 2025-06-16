@@ -30,14 +30,14 @@ public class Disc {
     public Disc(int discID, String manufacturer, String mold, String plastic, String color, int condition,
                 String description, String contactName, String contactPhone, String foundAt, boolean returned,
                 boolean sold, double MSRP) {
-        if (!(discID < 0)) {
+        if (discID < 0) {
             throw new IllegalArgumentException("Disc ID cannot be a negative number");
         }
-        else if (discID == 0) {
-            throw new IllegalArgumentException("Disc ID cannot be zero");
+        else if (discID != 0) {
+            this.discID = discID;
         }
         else {
-            this.discID = discID;
+            throw new IllegalArgumentException("Disc ID cannot be zero");
         }
 
         if (manufacturer == null) {
@@ -95,18 +95,24 @@ public class Disc {
         else {
             this.description = description;
         }
-        if (contactName == null) {
+
+        if (contactName == null || contactName.isEmpty()) {
             throw new IllegalArgumentException("ContactName cannot be null");
         }
         else {
             this.contactName = contactName;
         }
-        if (contactPhone == null) {
+
+        if (contactPhone == null || contactPhone.isEmpty()) {
             throw new IllegalArgumentException("ContactPhone cannot be null");
+        }
+        else if (contactPhone.length() != 10) {
+            throw new IllegalArgumentException("Contact phone number must be 10 digits");
         }
         else {
             this.contactPhone = contactPhone;
         }
+
         if (foundAt == null) {
             throw new IllegalArgumentException("FoundAt cannot be null");
         }
@@ -133,7 +139,7 @@ public class Disc {
         if (condition <= 5) {
             this.resaleValue = this.MSRP * 0.4;
         }
-        else if (condition > 5 && condition < 8) {
+        else if ((condition == 6) || (condition == 7)) {
             this.resaleValue = this.MSRP * 0.6;
         }
         else {
@@ -289,7 +295,7 @@ public class Disc {
             throw new IllegalArgumentException("FoundAt cannot be null");
         }
         else if (foundAt.isEmpty()) {
-
+            throw new IllegalArgumentException("FoundAt cannot be empty");
         }
         else {
             this.foundAt = foundAt;

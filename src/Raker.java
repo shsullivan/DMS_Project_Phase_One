@@ -195,14 +195,17 @@ public class Raker {
             return false;
         }
         else {
+            boolean found = false;
             for (Disc disc : discs.values()) {
                 if (disc.getContactPhone().equals(phoneNumber)) {
                     System.out.println(disc);
+                    found = true;
                 }
             }
-            return true;
+            return found;
         }
     }
+
     /*
      * Method: calculateReturnedValue
      * Parameters: None
@@ -220,6 +223,7 @@ public class Raker {
         }
         return value;
     }
+
     /*
      * Method: calculateSoldValue
      * Parameters: None
@@ -236,6 +240,67 @@ public class Raker {
             }
         }
         return value;
+    }
+
+    /*
+     * Method: returnDisc
+     * Parameters: int discID
+     * Returns: boolean
+     * Purpose: Changes the "returned" value of a given disc from false to true
+     */
+    public boolean returnDisc(int discID) {
+        if (discs.isEmpty() || !discs.containsKey(discID)) {
+            return false;
+        }
+        else {
+            for (Disc disc : discs.values()) {
+                if (disc.getDiscID() == discID) {
+                    disc.setReturned(true);
+                }
+            }
+        }
+        return true;
+    }
+
+    /*
+     * Method: sellDisc
+     * Parameters: int discID
+     * Returns: boolean
+     * Purpose: Changes the "sold" value of a given disc from false to true
+     */
+    public boolean sellDisc(int discID) {
+        if (discs.isEmpty() || !discs.containsKey(discID)) {
+            return false;
+        }
+        else {
+            for (Disc disc : discs.values()) {
+                if (disc.getDiscID() == discID) {
+                    disc.setSold(true);
+                }
+            }
+        }
+        return true;
+    }
+
+    /*
+     * Method: updateContactInformation
+     * Parameters: int discID
+     * Returns: boolean
+     * Purpose: Updates all contact information associated with given Disc ID
+     */
+    public boolean updateContactInformation(int discID, String contactName, String contactPhone) {
+        if (discs.isEmpty() || !discs.containsKey(discID)) {
+            return false;
+        }
+        else {
+            for (Disc disc : discs.values()) {
+                if (disc.getDiscID() == discID) {
+                    disc.setContactName(contactName);
+                    disc.setContactPhone(contactPhone);
+                }
+            }
+        }
+        return true;
     }
 }
 
