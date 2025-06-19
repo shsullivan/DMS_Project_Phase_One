@@ -46,6 +46,9 @@ public class Disc {
         else if (manufacturer.isEmpty()) {
             throw new IllegalArgumentException("Manufacturer cannot be empty");
         }
+        else if (manufacturer.length() > 20) {
+            throw new IllegalArgumentException("Manufacturer cannot be longer than 20 characters");
+        }
         else {
             this.manufacturer = manufacturer;
         }
@@ -55,6 +58,9 @@ public class Disc {
         }
         else if (mold.isEmpty()) {
             throw new IllegalArgumentException("Mold cannot be empty");
+        }
+        else if (mold.length() > 20) {
+            throw new IllegalArgumentException("Mold cannot be longer than 20 characters");
         }
         else {
             this.mold = mold;
@@ -66,6 +72,9 @@ public class Disc {
         else if (plastic.isEmpty()) {
             throw new IllegalArgumentException("Plastic cannot be empty");
         }
+        else if (plastic.length() > 20) {
+            throw new IllegalArgumentException("Plastic cannot be longer than 20 characters");
+        }
         else {
             this.plastic = plastic;
         }
@@ -74,6 +83,9 @@ public class Disc {
         }
         else if (color.isEmpty()) {
             throw new IllegalArgumentException("Color cannot be empty");
+        }
+        else if (color.length() > 20) {
+            throw new IllegalArgumentException("Color cannot be longer than 20 characters");
         }
         else {
             this.color = color;
@@ -118,6 +130,9 @@ public class Disc {
         }
         else if (foundAt.isEmpty()) {
             throw new IllegalArgumentException("FoundAt cannot be empty");
+        }
+        else if (foundAt.length() > 30) {
+            throw new IllegalArgumentException("FoundAt cannot be longer than 30 characters");
         }
         else {
             this.foundAt = foundAt;
