@@ -98,7 +98,7 @@ public class Raker {
                 }
                 // Catch invalid number formatting for ints and  doubles
                 catch (NumberFormatException e) {
-                    System.out.println("Invalid fine amount formatting for Disc at line: " + lineCount);
+                    System.out.println("Invalid monetary value formatting for Disc at line: " + lineCount);
                 }
                 // Catch any validation errors thrown by Disc constructor
                 catch (IllegalArgumentException e) {
